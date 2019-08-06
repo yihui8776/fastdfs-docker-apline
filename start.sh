@@ -88,12 +88,12 @@ fi
 fi
 
 # wait for pid file(important!),the max start time is 5 seconds,if the pid number does not appear in 5 seconds,start failed.
-TIMES=5
-while [ ! -f "$PID_NUMBER" -a $TIMES -gt 0 ]
-do
-    sleep 1s
-	TIMES=`expr $TIMES - 1`
-done
-ln -s ${FASTDFS_BASE_PATH}/data ${FASTDFS_BASE_PATH}/data/M00
+#TIMES=5
+#while [ ! -f "$PID_NUMBER" -a $TIMES -gt 0 ]
+#do
+#    sleep 1s
+#	TIMES=`expr $TIMES - 1`
+#done
+#ln -s ${FASTDFS_BASE_PATH}/data ${FASTDFS_BASE_PATH}/data/M00
 
 tail -f "$FASTDFS_LOG_FILE"
