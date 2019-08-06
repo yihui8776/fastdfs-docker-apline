@@ -1,0 +1,46 @@
+version: '3'
+services:
+  tracker:
+    build: .
+    image: yihui8776/fastdfs-docker-apline
+    container_name: tracker
+    # 该容器是否需要开机启动+自动重启。若需要，则取消注释。
+    restart: always
+    command: tracker
+    network_mode: host
+    environment: 
+      - FASTDFS_MODE=tracker
+    volumes:   
+      - ./fdfs/tracker:/var/fdfs    
+  storage0:
+    image: yihui8776/fastdfs-docker-apline
+    container_name: storage0
+    command: storage
+    network_mode: host  
+    environment:
+      - FASTDFS_MODE=storage
+      - TRACKER_SERVER=120.24.197.36:22122
+      #- NGINX_PORT=8082
+    volumes: 
+      - ./fdfs/storage0:/var/fdfs
+  # storage1:
+  #   container_name: storage1
+  #   image: yihui8776/fastdfs-docker-apline
+  #   command: storage
+  #   network_mode: host  
+  #   environment:
+  #     - TRACKER_SERVER=120.24.197.36:22122
+  #   volumes: 
+  #     - /var/fdfs/storage1:/var/fdfs
+  #  storage2:
+  #   container_name: storage2
+  #   image: yihui8776/fastdfs-docker-apline
+  #   command: storage
+  #   network_mode: host  
+  #   environment:
+  #     - TRACKER_SERVER=120.24.197.36:22122
+  #     - GROUP_NAME=group2
+  #     - PORT=24000
+  #   volumes: 
+  #     - /var/fdfs/storage2:/var/fdfs           
+                    
