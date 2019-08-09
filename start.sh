@@ -94,6 +94,6 @@ fi
 #    sleep 1s
 #	TIMES=`expr $TIMES - 1`
 #done
-#ln -s ${FASTDFS_BASE_PATH}/data ${FASTDFS_BASE_PATH}/data/M00
+ln -s ${FASTDFS_BASE_PATH}/data ${FASTDFS_BASE_PATH}/data/M00
 
 tail -f "$FASTDFS_LOG_FILE"
